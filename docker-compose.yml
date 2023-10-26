@@ -1,0 +1,40 @@
+---
+version: '3.11'
+
+services:
+  app:
+    container_name: simple_blog
+    build:
+      context: .
+      args:
+        - DEV=true
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./app:/app
+    command: >
+      #python manage.py wait_for_db &&
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=devdb
+      - DB_USER=devuser
+      - DB_PASS=changeme
+      - EMAIL_PASS=gnjgidfbskaqzztr
+      - EMAIL_HOST=drosostest@gmail.com
+    depends_on:
+      - db
+
+  db:
+    container_name: postgress_simple_blog
+    image: postgres:15.3-alpine
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=devdb
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=changeme
+
+volumes:
+  dev-db-data:
