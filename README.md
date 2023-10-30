@@ -11,6 +11,11 @@
 
 * To run some tests
 
-**docker-compose run --rm app sh -c 'pytest . '**
+  > **docker-compose run --rm app sh -c 'pytest . '**
+
+* for the docs of the API run the server and go
+  > /api/docs/
+
+This Blog created with the tailwind css and django html
 
 ## Have fun with this Simple Blog
