@@ -4,7 +4,6 @@ from django.db import models
 import uuid
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from django.db.utils import IntegrityError
 
 
 # Create your models here.
@@ -32,6 +31,7 @@ class UserManager(BaseUserManager):
             last_name=last_name.lower(),
         )
         user.set_password(password)
+        user.is_active = True
         user.save(using=self._db)
         return user
 

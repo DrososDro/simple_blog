@@ -12,6 +12,8 @@ pytest-django = "<4.6,>=4.5.0"
 pytest-cov = "<4.2,>=4.1.0"
 pytest-sugar = "<1.0.0,>=o.9.7"
 pytest-celery = "==0.0.0"
+drf-spectacular = "*"
+djangorestframework = "*"
 
 [dev-packages]
 

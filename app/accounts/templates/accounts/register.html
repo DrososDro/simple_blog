@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="flex h-full w-full items-center justify-center">
+        <form action="{% url 'register' %}"
+              class="flex flex-col rounded-2xl bg-stone-200 p-10"
+              method="POST">
+            {% csrf_token %}
+            <p class="pb-5 text-2xl font-semibold text-stone-800">Register to our Blog</p>
+            {% for field in form %}
+                <div>
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}<div class='error mx-3 my-1 rounded-2xl px-2 text-center'>{{ field.errors }}</div>{% endif %}
+                </div>
+            {% endfor %}
+            <button class="my-5 rounded-full px-5 py-2 transition-colors duration-500 hover:bg-stone-300"
+                    type="submit">Sign Up</button>
+            <div class="flex items-center justify-between">
+                <p>You already have an acoount</p>
+                <a class="rounded-full px-5 py-2 transition-colors duration-500 hover:bg-stone-300"
+                   href="{% url 'login' %}">Sign
+                In</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

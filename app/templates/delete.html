@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="flex w-full items-center justify-center text-center">
+  <div>
+    <h1 class="text-2xl font-semibold text-red-500">Are you sure you want to Delete</h1>
+    <p class="text-xl">{{ delete_message }}</p>
+    <form method="POST" action="{% url 'delete_article' post.id %}" class="flex justify-between">
+      {% csrf_token %}
+      <button type="submit" class="rounded-xl px-5 py-1 hover:bg-red-500 hover:text-stone-100">Delete</button>
+      <a class="rounded-xl px-5 py-1 hover:bg-stone-500 " href="{% url 'my_articles' %}">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock content %}

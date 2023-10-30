@@ -1,0 +1,9 @@
+{% if messages %}
+<div>
+  {% for message in messages %}
+  <div class="absolute right-5 sm:top-20 top-32 rounded-xl px-5 font-semibold {{ message.tags }} py-2">
+    {{ message }}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}

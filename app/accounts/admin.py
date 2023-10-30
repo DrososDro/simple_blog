@@ -33,7 +33,6 @@ class UserAdmin(BaseUserAdmin):
             "Permissions",
             {
                 "fields": [
-                    "perms",
                     "is_admin",
                     "is_superadmin",
                     "is_staff",

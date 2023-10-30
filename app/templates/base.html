@@ -1,13 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
+{% load static %}
 <html lang="en">
-
-<head>
-  <title></title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="css/style.css" rel="stylesheet" />
-</head>
-
-<body></body>
-
+    <head>
+        <title>Test app</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="{% static 'tw-ui.css' %}" rel="stylesheet" />
+    </head>
+    <body class="grid h-screen w-full grid-rows-[auto_1fr_auto] bg-stone-50 ">
+        {% include "navbar.html" %}
+        <div class="flex justify-center overflow-y-auto ">
+            {% include "messages.html" %}
+            <div class="flex w-2/3 flex-wrap">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+        {% include "footer.html" %}
+    </body>
 </html>

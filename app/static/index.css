@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .error {
+    @apply bg-red-600 text-stone-200;
+  }
+  .success {
+    @apply bg-green-600 text-stone-200;
+  }
+}

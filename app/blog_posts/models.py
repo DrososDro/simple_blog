@@ -7,3 +7,9 @@ class BlogPost(models.Model):
     content = models.TextField()
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        ordering = ["-created_at"]
